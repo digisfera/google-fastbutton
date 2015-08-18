@@ -101,11 +101,6 @@ quotmark: single
   // that other behaviors don’t get a chance to handle the same click event.
   // This is executed at the beginning of touch.
   FastButton.prototype.onTouchStart = function(event) {
-    if (event.stopPropagation) {
-      event.stopPropagation();
-    } else {
-      event.cancelBubble = true;
-    }
     this.touchEvents.push(
       addListener(this.element, 'touchend', this, this.useCapture)
     );
