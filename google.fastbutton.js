@@ -69,8 +69,12 @@ quotmark: single
 
   // Remove event handling when no longer needed for this button
   FastButton.prototype.destroy = function() {
-    for (var i = this.events.length - 1; i >= 0; i -= 1) {
+    var i;
+    for (i = this.events.length - 1; i >= 0; i -= 1) {
       this.events[i].destroy();
+    }
+    for (i = this.touchEvents.length - 1; i >= 0; i -= 1) {
+      this.touchEvents[i].destroy();
     }
     this.events =
     this.touchEvents =
